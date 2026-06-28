@@ -795,7 +795,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                             title='Delete Account'
                             className='deleteAccount'
                             onClick={async function(){
-                                const checkDelete = confirm('Bạn có muốn xoá tài khoản? (Toàn bộ dữ liệu tải lên sẽ bị mất)');
+                                const checkDelete = confirm('Delete this account? All data will be lost! Continue?');
                                 if(checkDelete){
                                     const reqDelete = await fetch(`https://chatbox-backend-3ru8.onrender.com/DeleteHandler?id=${JSON.parse(localStorage.getItem('user'))?.id}`);
                                     const resDelete = await reqDelete.json();

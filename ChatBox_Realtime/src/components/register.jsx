@@ -184,7 +184,7 @@ function Register({AppearStatus, setAppearStatus, createSocket}){
                             'birthday': registerResponse.Birthday,
                             'telephone': registerResponse.Telephone, 
                             'email': registerResponse.Email, 
-                            'avatar': `https://chatbox-backend-3ru8.onrender.com/uploaded/${registerResponse.Avatar}`,
+                            'avatar': `${registerResponse.Avatar}`,
                             'maxim': registerResponse.Maxim
                         }));
                         createSocket(registerResponse.Id);

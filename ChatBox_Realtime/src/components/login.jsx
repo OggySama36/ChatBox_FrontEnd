@@ -545,7 +545,7 @@ function Login({AppearStatus, setAppearStatus, createSocket}){
                                 'birthday': loginResponse.Birthday,
                                 'telephone': loginResponse.Telephone, 
                                 'email': loginResponse.Email, 
-                                'avatar': `https://chatbox-backend-3ru8.onrender.com/uploaded/${loginResponse.Avatar}`,
+                                'avatar': `${loginResponse.Avatar}`,
                                 'maxim': loginResponse.Maxim
                             })); 
                             setLock(false);
