@@ -1,0 +1,221 @@
+@media (max-width: 680px) {
+    .fullApp {
+        width: 100vw;
+        height: 100dvh;
+        overflow: hidden;
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center;
+        transform: translateZ(0);  /* force GPU repaint */
+        -webkit-transform: translateZ(0);
+    }
+    .main {
+        width: 100vw;
+        height: 100dvh;
+        padding: 0 !important;
+        margin: 0;
+        display: block !important;
+        grid-template-columns: unset !important;
+        grid-template-rows: unset !important;
+        overflow: hidden;
+    }
+    .title { font-size: 26px; text-align: center; }
+    .title_box p { font-size: 16px; text-align: center; }
+    .title_box {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        padding: 30px 20px;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        z-index: 1;
+    }
+    .start {
+        margin-top: 20px !important; /* override margin-top: 20% */
+        width: 75%;
+        font-size: 18px;
+        height: auto;
+        padding: 15px;
+    }
+    .mainBox_Login, .mainBox_Register {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        padding: 20px !important;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+    .mainBox_Register {
+        flex-direction: column !important;
+    }
+    .welcomeLogin {
+        font-size: 50px !important;
+        letter-spacing: 10px !important;
+    }
+    .welcomeRegister{
+        display: none !important
+    }
+    .both input[type="text"],
+    .both input[type="password"],
+    .both input[type="number"] {
+        width: 90% !important;
+        font-size: 16px;
+    }
+    .both { font-size: 18px; margin: 10px; }
+    button { width: 60% !important; height: auto !important; padding: 12px; }
+    .register_form button { width: 60% !important; }
+    .login_form button { width: 60% !important; }
+    
+
+
+    .home {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        z-index: 100;
+    }
+    .menu {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        z-index: 100;
+    }
+    .friends {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        z-index: 100;
+        background-color: rgb(42, 42, 42);
+    }
+    .profile {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        z-index: 101;
+    }
+    .home {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        display: flex;
+        flex-direction: column;
+    }
+    .menu {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        overflow-y: auto;
+    }
+    .friends {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        overflow-y: auto;
+    }
+    .home > .boxChat {
+        flex: 1;
+        height: auto !important;
+        overflow-y: auto;
+    }
+    .home > .sendBox {
+        height: 55px;
+        flex-shrink: 0;
+    }
+    .home > .titlePartner {
+        flex-shrink: 0;
+    }
+    .profile {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        overflow-y: auto;
+    }
+    .changeNameBox, .changePersonalInformation, .changePwdBox {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        overflow-y: auto;
+    }
+    .bothInfoProfile {
+        flex-direction: column;
+        height: auto;
+    }
+    .bothInfoProfile > .profileBox1 {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 2px solid black;
+    }
+    .bothInfoProfile > .profileBox2 {
+        width: 100%;
+        height: auto;
+    }
+    .avatarProfile {
+        border-radius: 50%;
+        width: 90%;
+        height: 60%;
+        object-fit: cover;
+        overflow: hidden;
+        box-shadow: 0 0 50px 1px rgb(255, 255, 166);
+    }
+    .avatarMain{
+        width: 30%;
+        height: 50%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .avatarPartner{
+        height: 100%;
+        width: 15%;
+        margin: 20px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,643 @@
+.home, .menu, .friends{
+    z-index: 100;
+}
+/*---------------------HOME---------------------------*/
+.home{
+    grid-column: 3/11;
+    grid-row: 1/13;
+    background-color: rgba(65, 19, 1, 0.808);
+    backdrop-filter: blur(5px);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -20px;
+    margin-bottom: -20px;
+    border: 2px solid white;
+    transition: all 1s ease;
+    overflow: hidden;
+}
+.home > h1{
+    height: 10%;
+    width: 100%;
+    background-color: transparent;
+    margin: 0;
+    border: 1px solid white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.home > .titlePartner{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.avatarPartner{
+    height: 100%;
+    width: 8%;
+    margin: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+.startTitle{
+    grid-row: 1/3;
+    grid-column: 1/13;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home>.sendBox{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.sendBox>input{
+    width: 90%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.656);
+    color: white;
+    border: 1px solid white;
+    font-size: 20px;
+    padding-left: 20px;
+}
+.blockNotification > p{
+    font-size: 15px;
+}
+.blockNotification {
+    width: 100%;
+    padding: 20px;
+    line-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.unlock{
+    color: blue;
+    font-weight: bold;
+}
+.unlock:hover{
+    cursor: pointer;
+}
+.sendIcon{
+    width: 10%;
+    height: 100%;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0.656);
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sendIcon:hover .IconSend {
+    transform: translateX(2px);
+    cursor: pointer;
+}
+.home>.boxChat{
+    height: 80%;
+    width: 100%;
+    background-color: transparent;
+    overflow: auto;
+    border: 1px solid rgba(255, 255, 255, 0.844);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    user-select: text !important;
+}
+.boxChat::-webkit-scrollbar{
+    width: 10px;
+}
+
+.boxChat::-webkit-scrollbar-track{
+    background: rgb(0, 0, 0);
+}
+
+.boxChat::-webkit-scrollbar-thumb{
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.boxChat::-webkit-scrollbar-thumb:hover{
+    background: rgb(156, 156, 156);
+}
+.profile {
+    grid-row: 1/13;
+    grid-column: 2/11;
+    background-color: rgba(242, 203, 203, 0.882);
+    backdrop-filter: blur(3px);
+    margin: -20px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 2px solid white;
+}
+.profile > .title{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+    background-color: rgb(211, 0, 123);
+    align-items: center;
+    justify-content: center;
+}
+.profile > .bothInfoProfile{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.bothInfoProfile > .profileBox1{
+    width: 30%;
+    height: 100%;
+    border-right: 2px solid black;
+    background-color: rgb(255, 210, 155);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.bothInfoProfile > .profileBox2{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.maxim{
+    width: 100%; height: auto;
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.maxim>span{margin-left: 5px;}
+.profile > .title > .exitProfile {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+.profile > .title > .exitProfile > div {
+    border-radius: 20%;
+    background-color: black;
+    padding-left: 10px; padding-right: 10px;
+    color: white;
+    font-size: 30px;
+    outline: 2px solid white;
+}
+.profile > .title > .exitProfile > div:hover{cursor: pointer;transform: translateX(-2px);}
+.profile > .title > .nameProfile{
+    width: 90%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.changeName{
+    font-size: 18px;
+    margin-left: 10px;
+}
+.changeName:hover{cursor: pointer;}
+.changeNameBox, .changePersonalInformation, .changePwdBox{
+    width: 50%; height: 100%;
+    padding: 20px;
+    background-color: bisque;
+    grid-row: 4/7;
+    grid-column: 4/8;
+    color: black;
+    outline: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.editBirthday:hover, .editTelephone:hover, .editEmail:hover, .changeName:hover, .changeMaxim:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(47, 36, 255);
+}
+.inputChanges {
+    padding: 5px;
+    width: 70%;
+    background-color: beige;
+}
+.saveBtn{
+    box-shadow: none;
+    background: linear-gradient(80deg, rgb(255, 224, 167), rgb(225, 254, 255));
+    background-size: 200% 100%;
+    background-position: right center;
+    transition: background-position 0.5s ease;
+    margin-top: 3%;
+    width: 40%;
+    padding: 10px;
+}
+.changePwd{
+    list-style: none;
+}
+.changePwd:hover{
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+.changePwd > b{
+    color: blue;
+}
+.saveBtn:hover, .SaveNewPwd:hover{
+    background-position: left center;
+}
+.changeNameBox > input{background-color: beige;}
+.titleChangeName, .titleChangeInformation{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+}
+.exitChangeName, .exitChangeInformation, .exitChangePwd{
+    width: auto; height: 30%;
+    padding: 3px;
+    padding-left: 5px; padding-right: 5px;
+    color: rgb(0, 0, 0);
+    outline: 1px solid rgb(0, 0, 0);
+    border-radius: 20%;
+    background-color: beige;
+}
+.exitChangeName:hover, .exitChangeInformation:hover, .exitChangePwd:hover{
+    transform: translateX(-2px);
+    cursor: pointer;
+}
+.exitChangePwd{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.changePwdBox{
+    align-items: start;
+}
+.changePwdBox>input{
+    margin-top: 10px;
+    width: 100%;
+    padding: 5px;
+}
+.handleChangePwd{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+.boxShow{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: center;
+}
+.SaveNewPwd{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    background: linear-gradient(80deg, rgb(255, 224, 167), rgb(225, 254, 255));
+    background-size: 200% 100%;
+    background-position: right center;
+    transition: background-position 0.5s ease;
+    margin-top: 3%;
+    padding: 10px;
+}
+.validPwd{outline: 1.5px solid rgb(0, 255, 0);}
+.InvalidPwd{outline: 1.5px solid rgb(255, 0, 0);}
+.avatarProfile {
+    border-radius: 50%;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    overflow: hidden;
+    box-shadow: 0 0 50px 1px rgb(255, 255, 166);
+}
+.avatarProfile:hover{
+    filter: blur(3px);
+    cursor: pointer;
+}
+.deleteAccount, .logout{
+    width: 35%;
+    border-radius: 10px;
+    background-color: red;
+    color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteAccount:hover, .logout:hover{
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.boxMessageSender{
+    padding: 15px;
+    margin: 2px;
+    max-width: 60%;
+    background-color: rgb(255, 0, 0);
+    margin-right: 0;
+    color: black;
+    font-size: 18px;
+    word-wrap: break-word;
+    user-select: auto;
+    border-radius: 10px 0px 0px 10px;
+}
+.boxMessageReceiver{
+    padding: 15px;
+    margin: 2px;
+    max-width: 60%;
+    background-color: rgb(255, 132, 132);
+    margin-left: 0;
+    align-self: flex-start;
+    color: black;
+    font-size: 18px;
+    word-wrap: break-word;
+    user-select: auto;
+    border-radius: 0px 10px 10px 0px;
+}
+.boxMessageReceiver:empty, .boxMessageSender:empty{
+    display: none;
+}
+
+/*-----------------------MENU-------------------------*/
+.menu{
+    grid-column: 1/3;
+    grid-row: 1/13;
+    background-color: rgba(0, 0, 0, 0.808);
+    backdrop-filter: blur(5px);
+    margin: -20px;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    transition: all 1s ease;
+    padding: 10px;
+}
+.currentProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+    margin-bottom: 0;
+}
+.optionsBox{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.optionsBox > .backFriendIcon{margin-right: 20px;}
+.optionsBox > .optionIcon{font-size: 20px;}
+.optionIcon:hover{
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+.avatarMain{
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.titleUser:hover{
+    cursor: pointer;
+}
+.menu input{
+    background-color: beige;
+    padding: 5px;
+    outline: 1px solid white;
+    width: 100%;
+}
+.box-find-friends{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.box-find-friends > button{
+    width: 20%; height: auto;
+    box-shadow: 0 0.3px 0 0.3px rgb(133, 86, 47);
+    outline: 1px solid white;
+}
+.box-find-friends > button:active{
+    transform: translate(0px);
+    background-color: rgb(255, 217, 171);
+}
+.listFound li:hover{
+    background-color: rgb(53, 53, 53);
+    cursor: pointer;
+}
+.listFound li{
+    color: white;
+    list-style: none;
+    margin-top: 10px;
+    padding: 5px;
+    width: 100%;
+}
+.listFound{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.frienditem{
+    width: 100%;
+}
+.miniProfile{
+    width: 200px;
+    height: 150px;
+    background-color: antiquewhite;
+    color: black;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+.nameMiniProfile{
+    height: 100%; width: 40%;
+    display: flex;
+    font-size: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: pink;
+}
+.avatarFriendMiniProfile{
+    width: 80%; 
+    height: 50%;
+    object-fit: cover;
+    border-radius: 50%; 
+}
+.lineMiniProfile{
+    width: 0.7%;
+    background-color: black;
+    height: 100%;
+}
+.infoMiniProfile{
+    height: 100%; width: 60%;
+    overflow: hidden;
+}
+.infoMiniProfile>p{
+    margin-top: 0px;
+    width: 100%;
+    height: auto;
+    background-color: pink;
+    font-size: 70%;
+    text-align: center;
+    outline: 1px solid black;
+}
+.listFound::-webkit-scrollbar{
+    width: 3px;
+}
+
+.listFound::-webkit-scrollbar-track{
+    background: rgb(103, 103, 103);
+    border-radius: 15px;
+}
+
+.listFound::-webkit-scrollbar-thumb{
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.listFound::-webkit-scrollbar-thumb:hover{
+    background: rgb(156, 156, 156);
+}
+/*-----------------------FRIENDS-------------------------*/
+.friends{
+    grid-column: 11/13;
+    grid-row: 1/13;
+    background-color: rgba(0, 0, 0, 0.808);
+    backdrop-filter: blur(5px);
+    margin: -20px;
+    overflow: hidden;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 1s ease;
+}
+hr {width: 100%; background-color: white; margin: 0; z-index: 101;}
+.historyChat{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.history_friend {
+    display: flex;
+    flex-direction: row;
+    overflow: visible;
+    display: flex;
+    height: 7%;
+    align-items: center;
+    flex-direction: row;
+}
+.oneLine:hover{
+    background-color: rgba(111, 111, 111, 0.305);
+    cursor: pointer;
+}
+.avtFriend{
+    height: 30px;
+    width: 40px;
+    object-fit: cover;
+    margin-left: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.oneLine{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.2s ease;
+}
+.friendsOptions{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+.friendsOptions:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.248);
+}
+.optionFriends{
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.808);
+    color: white;
+    outline: none;
+    border: none;
+    transition: all 0.2s ease;
+    line-height: 1.5;
+}
+
+.optionFriends > div{
+    width: auto;
+    white-space: nowrap;
+    padding: 5px;
+    background-color: rgba(128, 128, 128, 0.54);
+    margin-bottom: 5px;
+}
+.deleteFriend:hover, .block:hover{
+    background-color: rgba(143, 0, 0, 0.656);
+    color: white;
+}
+.nickname:hover{
+    background-color: wheat;
+    color: black;
+}
+.backFriendIcon, .backMenuIcon, .exitChating{
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.1s ease;
+}
+.inputFindFriend{
+    width: 85%;
+    background-color: aliceblue;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    font-size: 16px;
+}
+.deleteValue{
+    width: 15%;
+    color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+.box_find_friends{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.backFriendIcon:active, .backMenuIcon:active, .exitChating:active{
+    background-color: rgb(42, 42, 42);
+}
