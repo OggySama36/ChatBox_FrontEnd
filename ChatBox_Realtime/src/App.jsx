@@ -33,7 +33,7 @@ function App() {
     });
     const res = await req.json();
     if (res.Status){
-      await createSocket(JSON.parse(localStorage.getItem("user")).id);
+      await createSocket(JSON.parse(localStorage.getItem("user"))?.id);
       await setPageAuth("dashboard");
     }
     else {
