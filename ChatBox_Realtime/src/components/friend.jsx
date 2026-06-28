@@ -58,7 +58,7 @@ function Friend({
             if (!JSON.parse(localStorage.getItem('user'))){
                 return
             }
-            const req = await fetch(`http://localhost:8080/loadFriends?idSender=${JSON.parse(localStorage.getItem('user'))?.id}`);
+            const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/loadFriends?idSender=${JSON.parse(localStorage.getItem('user'))?.id}`);
             const res = await req.json()
             if (AppearStatus === "dashboard"){
                 setHistory_chat(res);
@@ -74,7 +74,7 @@ function Friend({
             if (!JSON.parse(localStorage.getItem('user'))){
                 return
             }
-            const req = await fetch(`http://localhost:8080/loadBlockers?idCurrent=${JSON.parse(localStorage.getItem('user'))?.id}`);
+            const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/loadBlockers?idCurrent=${JSON.parse(localStorage.getItem('user'))?.id}`);
             const res = await req.json()
             if (AppearStatus === "dashboard"){
                 setListBlocked(Array.isArray(res) ? res : []);
@@ -151,7 +151,7 @@ function Friend({
                                         setCurrentChat(IdFriend);
                                     }
                                 }}>
-                                    <img className = "avtFriend" src={`http://localhost:8080/uploaded/${AvatarFriend}`}/>
+                                    <img className = "avtFriend" src={`https://chatbox-backend-3ru8.onrender.com/uploaded/${AvatarFriend}`}/>
                                     <p>{NameFriend}</p>  
                                 </div>
                                 <span 
@@ -201,7 +201,7 @@ function Friend({
                                         const currentUserId = JSON.parse(localStorage.getItem('user')) === null ? null : JSON.parse(localStorage.getItem('user')).id;
                                         const checkDelete = confirm(`Are you sure you want to delete conversation with ${NameFriend}?`);
                                         if(checkDelete){
-                                            const req = await fetch(`http://localhost:8080/DeleteFriends?idFriend=${(IdFriend)}&idOrigin=${(JSON.parse(localStorage.getItem('user')) === null ? null : JSON.parse(localStorage.getItem('user')).id )}`);
+                                            const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/DeleteFriends?idFriend=${(IdFriend)}&idOrigin=${(JSON.parse(localStorage.getItem('user')) === null ? null : JSON.parse(localStorage.getItem('user')).id )}`);
                                             const res = await req.json()
                                             if(res.Status){
                                                 setHistory_chat((prevList) => {
@@ -243,7 +243,7 @@ function Friend({
                                                         one_Block: idCurrent,
                                                         one_BeBlocked: idFriend,
                                                     }));
-                                                    await fetch(`http://localhost:8080/BlockThisFriend?idCurrent=${idCurrent}&idFriend=${idFriend}`);
+                                                    await fetch(`https://chatbox-backend-3ru8.onrender.com/BlockThisFriend?idCurrent=${idCurrent}&idFriend=${idFriend}`);
                                                 }
                                             }
                                         }}

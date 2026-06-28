@@ -43,10 +43,10 @@ function Login({AppearStatus, setAppearStatus, createSocket}){
         return checkCondition.test(pwdCheck);
     }
     async function deleteOtp(user){
-        await fetch(`http://localhost:8080/clearOtp?user=${user}&type=${typeHandle}`);
+        await fetch(`https://chatbox-backend-3ru8.onrender.com/clearOtp?user=${user}&type=${typeHandle}`);
     }
     async function lockThisAccount(user){
-        const req = await fetch(`http://localhost:8080/lockAccount?user=${user}&type=${typeHandle}`);
+        const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/lockAccount?user=${user}&type=${typeHandle}`);
         const res = await req.json();
         const day = new Date(res.TimeExpire);
         const dayArray = day.toString().split(" ");
@@ -54,7 +54,7 @@ function Login({AppearStatus, setAppearStatus, createSocket}){
         setTimeLock(dayReal);
     }
     async function checkLock(email) {
-        const req = await fetch(`http://localhost:8080/checkLock?email=${email}`);
+        const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/checkLock?email=${email}`);
         const res = await req.json();
         const day = new Date(res.TimeExpire)
         const dayArray = day.toString().split(" ");
@@ -178,7 +178,7 @@ function Login({AppearStatus, setAppearStatus, createSocket}){
                                 return
                             }
                             setDisable(true)
-                            const req = await fetch(`http://localhost:8080/Recover?email=${ValueRecover}&type=${progress}`);
+                            const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/Recover?email=${ValueRecover}&type=${progress}`);
                             const res = await req.json();
                             if (res.Status){
                                 setDisable(false);
@@ -218,7 +218,7 @@ function Login({AppearStatus, setAppearStatus, createSocket}){
                                 return
                             }
                             setDisable(true);
-                            const req = await fetch(`http://localhost:8080/Recover?telephone=${ValueRecover}&type=${progress}`);
+                            const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/Recover?telephone=${ValueRecover}&type=${progress}`);
                             const res = await req.json();
                             if (res.Status){
                                 setDisable(false);
@@ -259,7 +259,7 @@ function Login({AppearStatus, setAppearStatus, createSocket}){
                                         setDisable(true);
                                         const inputOtp = newArray.join("");
                                         console.log(inputOtp);
-                                        const req = await fetch(`http://localhost:8080/Recover?type=${progress}&email=${ValueRecover}`, {
+                                        const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/Recover?type=${progress}&email=${ValueRecover}`, {
                                             method: "POST",
                                             headers: {"Content-Type": "application/json"},
                                             body: JSON.stringify({
@@ -412,7 +412,7 @@ function Login({AppearStatus, setAppearStatus, createSocket}){
                                     return
                                 }
                                 setDisable(true);
-                                const req = await fetch(`http://localhost:8080/Recover?email=${ValueRecover}&type=${progress}`, {
+                                const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/Recover?email=${ValueRecover}&type=${progress}`, {
                                     method: "POST",
                                     headers:{
                                         "Content-Type": "application/json",
@@ -526,7 +526,7 @@ function Login({AppearStatus, setAppearStatus, createSocket}){
                             setLockAcc(checkLocked.Status);
                             return
                         }
-                        const res = await fetch('http://localhost:8080/LoginHandler', {
+                        const res = await fetch('https://chatbox-backend-3ru8.onrender.com/LoginHandler', {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -545,7 +545,7 @@ function Login({AppearStatus, setAppearStatus, createSocket}){
                                 'birthday': loginResponse.Birthday,
                                 'telephone': loginResponse.Telephone, 
                                 'email': loginResponse.Email, 
-                                'avatar': `http://localhost:8080/uploaded/${loginResponse.Avatar}`,
+                                'avatar': `https://chatbox-backend-3ru8.onrender.com/uploaded/${loginResponse.Avatar}`,
                                 'maxim': loginResponse.Maxim
                             })); 
                             setLock(false);

@@ -158,7 +158,7 @@ function Register({AppearStatus, setAppearStatus, createSocket}){
                         return
                     }
                     setLock(true);
-                    const res = await fetch('http://localhost:8080/RegisterHandler', { 
+                    const res = await fetch('https://chatbox-backend-3ru8.onrender.com/RegisterHandler', { 
                         method: "POST", 
                         credentials: "include",
                         headers: { "Content-Type": "application/json", }, 
@@ -184,7 +184,7 @@ function Register({AppearStatus, setAppearStatus, createSocket}){
                             'birthday': registerResponse.Birthday,
                             'telephone': registerResponse.Telephone, 
                             'email': registerResponse.Email, 
-                            'avatar': `http://localhost:8080/uploaded/${registerResponse.Avatar}`,
+                            'avatar': `https://chatbox-backend-3ru8.onrender.com/uploaded/${registerResponse.Avatar}`,
                             'maxim': registerResponse.Maxim
                         }));
                         createSocket(registerResponse.Id);

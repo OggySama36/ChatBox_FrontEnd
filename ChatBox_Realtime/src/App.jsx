@@ -24,11 +24,11 @@ function App() {
     return () => clearInterval(interval_greeting);
   }, []);
   function createSocket(idCurrent){
-      const ws = new WebSocket(`ws://localhost:8080/ws?id=${idCurrent}`);
+      const ws = new WebSocket(`wss://chatbox-backend-3ru8.onrender.com/ws?id=${idCurrent}`);
       setSocket(ws);
   }
   async function checkAuth(){
-    const req = await fetch("http://localhost:8080/checkAuth", {
+    const req = await fetch("https://chatbox-backend-3ru8.onrender.com/checkAuth", {
       credentials: "include"
     });
     const res = await req.json();

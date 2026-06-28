@@ -83,7 +83,7 @@ function Menu(
                     setValueInput(e.target.value)
                     clearInterval(searchingTimeout);
                     searchingTimeout.current = setTimeout(async () => {
-                        const find_in_db = await fetch (`http://localhost:8080/FindFriendsHandler?q=${e.target.value}&id=${JSON.parse(localStorage.getItem('user')) === null ? null : JSON.parse(localStorage.getItem('user')).id}`);
+                        const find_in_db = await fetch (`https://chatbox-backend-3ru8.onrender.com/FindFriendsHandler?q=${e.target.value}&id=${JSON.parse(localStorage.getItem('user')) === null ? null : JSON.parse(localStorage.getItem('user')).id}`);
                         const findResult =  await find_in_db.json();
                         if (findResult.Status){
                             setList(findResult.Friends);
@@ -96,7 +96,7 @@ function Menu(
                     if (valueInput.trim() === ""){
                         return
                     }
-                    const find_in_db = await fetch (`http://localhost:8080/FindFriendsHandler?q=${valueInput}`);
+                    const find_in_db = await fetch (`https://chatbox-backend-3ru8.onrender.com/FindFriendsHandler?q=${valueInput}`);
                         const findResult =  await find_in_db.json();
                         if (findResult.Status){
                             setList(findResult.Friends);
@@ -153,7 +153,7 @@ function Menu(
                     }}
                 >
                     <div className='nameMiniProfile'>
-                        <img src={`http://localhost:8080/uploaded/avatar_${hoveredFriend.Id}.png`} className='avatarFriendMiniProfile'/>
+                        <img src={`https://chatbox-backend-3ru8.onrender.com/uploaded/avatar_${hoveredFriend.Id}.png`} className='avatarFriendMiniProfile'/>
                         <p>{hoveredFriend.Name}</p>
                     </div>
                     <div className='lineMiniProfile'></div>

@@ -47,7 +47,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                 return
             }
             setMessageChat([]);
-            const req = await fetch(`http://localhost:8080/loadMessage?idSender=${JSON.parse(localStorage.getItem('user'))?.id}&idReceiver=${currentChat}`)
+            const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/loadMessage?idSender=${JSON.parse(localStorage.getItem('user'))?.id}&idReceiver=${currentChat}`)
             const res = await req.json()
             if(AppearStatus === "dashboard"){
                 res.forEach((message) => {
@@ -90,7 +90,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
         reCheckRef.current.classList.remove("InvalidPwd");
     }
     async function clearCookie(){
-       await fetch("http://localhost:8080/clearCookie", {
+       await fetch("https://chatbox-backend-3ru8.onrender.com/clearCookie", {
             method: "POST",
             credentials: "include"
        });        
@@ -136,7 +136,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                 return;
             }
         }
-        const changeInfoRequest = await fetch(`http://localhost:8080/editInformation?id=${JSON.parse(localStorage.getItem('user')).id}`, {
+        const changeInfoRequest = await fetch(`https://chatbox-backend-3ru8.onrender.com/editInformation?id=${JSON.parse(localStorage.getItem('user')).id}`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -168,7 +168,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
     async function BirthdayHandler(){
         const birthday_parts = valueInfo.split("-");
         const goodBirthday = `${birthday_parts[2]}/${birthday_parts[1]}/${birthday_parts[0]}`
-        const changeBirthdayRequest = await fetch(`http://localhost:8080/editInformation?id=${JSON.parse(localStorage.getItem('user')).id}`, {
+        const changeBirthdayRequest = await fetch(`https://chatbox-backend-3ru8.onrender.com/editInformation?id=${JSON.parse(localStorage.getItem('user')).id}`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -191,7 +191,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
         }
     }
     async function MaximHandler(){
-        const req = await fetch(`http://localhost:8080/editInformation?id=${IdSelf}`, {
+        const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/editInformation?id=${IdSelf}`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -327,7 +327,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
         }
     }
     async function unlockThisFriend(idFriend){
-        await fetch(`http://localhost:8080/Unlock?idCurrent=${JSON.parse(localStorage.getItem('user'))?.id}&idFriend=${idFriend}`);
+        await fetch(`https://chatbox-backend-3ru8.onrender.com/Unlock?idCurrent=${JSON.parse(localStorage.getItem('user'))?.id}&idFriend=${idFriend}`);
     }
     const IdSelf = JSON.parse(localStorage.getItem('user'))?.id;
     const isBlocker = listBlocked?.some(
@@ -525,7 +525,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                             alert("Your confirm password need to be the same with your new password!");
                             return
                         }
-                        const req = await fetch(`http://localhost:8080/ChangePwdHandler?id=${IdSelf}`, {
+                        const req = await fetch(`https://chatbox-backend-3ru8.onrender.com/ChangePwdHandler?id=${IdSelf}`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -589,7 +589,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                                 }}
                             >&#8592;</span>
                         )}
-                        <img src={`http://localhost:8080/uploaded/avatar_${currentChat}.png`} className='avatarPartner'/>
+                        <img src={`https://chatbox-backend-3ru8.onrender.com/uploaded/avatar_${currentChat}.png`} className='avatarPartner'/>
                         <h1>{onMessage}</h1>
                     </div>
                     <div className='boxChat' >
@@ -670,7 +670,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                         alert("Name cannot be empty");
                         return
                     }
-                    const changeNameRequest = await fetch(`http://localhost:8080/ChangeNameHandler?id=${JSON.parse(localStorage.getItem('user'))?.id}`, {
+                    const changeNameRequest = await fetch(`https://chatbox-backend-3ru8.onrender.com/ChangeNameHandler?id=${JSON.parse(localStorage.getItem('user'))?.id}`, {
                         method: "POST",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({
@@ -797,7 +797,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                             onClick={async function(){
                                 const checkDelete = confirm('Bạn có muốn xoá tài khoản? (Toàn bộ dữ liệu tải lên sẽ bị mất)');
                                 if(checkDelete){
-                                    const reqDelete = await fetch(`http://localhost:8080/DeleteHandler?id=${JSON.parse(localStorage.getItem('user'))?.id}`);
+                                    const reqDelete = await fetch(`https://chatbox-backend-3ru8.onrender.com/DeleteHandler?id=${JSON.parse(localStorage.getItem('user'))?.id}`);
                                     const resDelete = await reqDelete.json();
                                     if (resDelete.Status){
                                         setAppearStatus("register");
@@ -834,7 +834,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
             onChange={async function(e){
                 const formData = new FormData();
                 formData.append("file", e.target.files[0]);
-                const uploadAvtReq = await fetch(`http://localhost:8080/uploadAvt?id=${JSON.parse(localStorage.getItem('user'))?.id}`, {
+                const uploadAvtReq = await fetch(`https://chatbox-backend-3ru8.onrender.com/uploadAvt?id=${JSON.parse(localStorage.getItem('user'))?.id}`, {
                     method: "POST",
                     body: formData
                 });
