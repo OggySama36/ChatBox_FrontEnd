@@ -12,7 +12,8 @@ function Menu(
         isMobile, 
         mobileView, 
         setMobileView, 
-        goToChat
+        goToChat,
+        setAvatarPartner
     }
 ){
     const [valueInput, setValueInput] = useState("");
@@ -112,10 +113,11 @@ function Menu(
                                 className='frienditem'
                                 onClick={() => {
                                     if (isMobile) {
-                                        goToChat(friendindex.Id, friendindex.Name);
+                                        goToChat(friendindex.Id, friendindex.Name, friendindex.Avatar);
                                     } else {
                                         setOnMessage(friendindex.Name);
                                         setCurrentChat(friendindex.Id);
+                                        setAvatarPartner(friendindex.Avatar)
                                     }
                                     setValueInput("");
                                     clearTimeout(hoverTimeoutRef.current);
@@ -153,7 +155,7 @@ function Menu(
                     }}
                 >
                     <div className='nameMiniProfile'>
-                        <img src={`https://chatbox-backend-3ru8.onrender.com/uploaded/avatar_${hoveredFriend.Id}.png`} className='avatarFriendMiniProfile'/>
+                        <img src={hoveredFriend.Avatar} className='avatarFriendMiniProfile'/>
                         <p>{hoveredFriend.Name}</p>
                     </div>
                     <div className='lineMiniProfile'></div>

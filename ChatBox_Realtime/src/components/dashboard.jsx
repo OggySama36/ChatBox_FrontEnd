@@ -26,6 +26,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
     const [showChangePwd, setShow] = useState(false);
     const pwdRef = useRef(null);
     const reCheckRef = useRef(null);
+    const [AvatarPartner, setAvatarPartner] = useState("");
 
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 680);
 
@@ -36,9 +37,10 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
     }, []);
     const [mobileView, setMobileView] = useState("friend");
 
-    const goToChat = (id, name) => {
+    const goToChat = (id, name, avatar) => {
         setCurrentChat(id);
         setOnMessage(name);
+        setAvatarPartner(avatar);
         if (isMobile) setMobileView("chat");
     };
     useEffect(() => {
@@ -589,7 +591,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                                 }}
                             >&#8592;</span>
                         )}
-                        <img src={`https://chatbox-backend-3ru8.onrender.com/uploaded/avatar_${currentChat}.png`} className='avatarPartner'/>
+                        <img src={AvatarPartner} className='avatarPartner'/>
                         <h1>{onMessage}</h1>
                     </div>
                     <div className='boxChat' >
@@ -623,6 +625,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
             mobileView={mobileView}
             setMobileView={setMobileView}
             goToChat={goToChat}
+            setAvatarPartner={setAvatarPartner}
             />
             <Friend 
             AppearStatus={AppearStatus}
@@ -640,6 +643,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
             mobileView={mobileView}
             setMobileView={setMobileView}
             goToChat={goToChat}
+            setAvatarPartner={setAvatarPartner}
             />
             <div 
             className='changeNameBox'

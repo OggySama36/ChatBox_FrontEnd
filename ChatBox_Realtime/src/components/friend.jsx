@@ -13,7 +13,8 @@ function Friend({
     isMobile, 
     mobileView, 
     setMobileView, 
-    goToChat
+    goToChat,
+    setAvatarPartner
 }) {
     const [HandleFriend, setHandleFriend] = useState(null);
     const [valueFindFriend, setValueFindFriend] = useState("");
@@ -114,13 +115,14 @@ function Friend({
                 placeholder='Find your friends'
                 value={valueFindFriend}
                 onChange={(e) => {
-                    setValueFindFriend(e.target.value);
+                    const newValue = e.target.value;
+                    setValueFindFriend(newValue);
                     clearTimeout(searchFriendTimeout.current);
                     searchFriendTimeout.current = setTimeout(() => {
                         const filteredChat = history_chatbox?.filter((history) => {
                             const IdSelf = JSON.parse(localStorage.getItem('user'))?.id;
                             const NameFriend = IdSelf === history.IdSender ? history.NameReceiver : history.NameSender;
-                            return NameFriend.toLowerCase().includes(valueFindFriend.toLowerCase());
+                            return NameFriend.toLowerCase().includes(newValue.toLowerCase());
                         });
                         setFilteredChat(filteredChat);
                     })
@@ -145,13 +147,14 @@ function Friend({
                                 <div className='oneLine'
                                 onClick={() => {
                                     if (isMobile) {
-                                        goToChat(IdFriend, NameFriend);
+                                        goToChat(IdFriend, NameFriend, AvatarFriend);
                                     } else {
                                         setOnMessage(NameFriend);
                                         setCurrentChat(IdFriend);
+                                        setAvatarPartner(AvatarFriend)
                                     }
                                 }}>
-                                    <img className = "avtFriend" src={`https://chatbox-backend-3ru8.onrender.com/uploaded/${AvatarFriend}`}/>
+                                    <img className = "avtFriend" src={AvatarFriend}/>
                                     <p>{NameFriend}</p>  
                                 </div>
                                 <span 
