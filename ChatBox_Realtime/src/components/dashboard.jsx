@@ -30,7 +30,9 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 680);
     const bottomRef = useRef(null);
     useEffect(() => {
-        bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+        if (bottomRef.current) {
+            bottomRef.current.scrollTop = bottomRef.current.scrollHeight;
+        }
     }, [messageChat]);
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 680);
