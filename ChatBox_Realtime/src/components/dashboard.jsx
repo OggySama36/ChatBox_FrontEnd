@@ -27,9 +27,11 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
     const pwdRef = useRef(null);
     const reCheckRef = useRef(null);
     const [AvatarPartner, setAvatarPartner] = useState("");
-
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 680);
-
+    const bottomRef = useRef(null);
+    useEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [messageChat]);
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 680);
         window.addEventListener('resize', handleResize);
@@ -607,6 +609,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                                 </>
                             )
                         })}
+                        <div ref={bottomRef} />
                     </div>
                     <div className='sendBox'>
                         {getBlockContent()}
