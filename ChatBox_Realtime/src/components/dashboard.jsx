@@ -609,7 +609,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                                 </>
                             )
                         })}
-                        <div ref={bottomRef} />
+                        <div ref={bottomRef}></div>
                     </div>
                     <div className='sendBox'>
                         {getBlockContent()}
