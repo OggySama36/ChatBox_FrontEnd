@@ -29,11 +29,22 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
     const [AvatarPartner, setAvatarPartner] = useState("");
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 680);
     const bottomRef = useRef(null);
+    const inputRef = useRef(null);
     useEffect(() => {
         if (bottomRef.current) {
             bottomRef.current.scrollTop = bottomRef.current.scrollHeight;
         }
     }, [messageChat]);
+    useEffect(() => {
+        if (!socket) return;
+        
+        const pingInterval = setInterval(() => {
+            if (socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({ Case: "ping" }));
+            }
+        }, 5 * 60 * 1000); 
+        return () => clearInterval(pingInterval);
+    }, [socket]);
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 680);
         window.addEventListener('resize', handleResize);
@@ -370,7 +381,9 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
         )
         else return (
             <>
-                <input placeholder='Aa'
+                <input 
+                ref={inputRef}
+                placeholder='Aa'
                 value = {chating}
                 onChange={function(e){
                     setChating(e.target.value);
@@ -416,6 +429,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                             Message: chating
                         }))
                         setChating("");
+                        inputRef.current?.focus();
                     }
                 }}
                 >&#10148;</div>
