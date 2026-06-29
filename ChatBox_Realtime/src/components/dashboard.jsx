@@ -598,7 +598,7 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
                         <img src={AvatarPartner} className='avatarPartner'/>
                         <h1>{onMessage}</h1>
                     </div>
-                    <div className='boxChat' >
+                    <div className='boxChat' ref={bottomRef}>
                         {messageChat.map(function(message){
                             return (
                                 <>
