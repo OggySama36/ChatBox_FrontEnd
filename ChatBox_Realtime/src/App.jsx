@@ -73,7 +73,7 @@ function App() {
         </div>
         <Login AppearStatus = {pageAuth} setAppearStatus = {setPageAuth} createSocket = {createSocket}/>
         <Register AppearStatus = {pageAuth} setAppearStatus = {setPageAuth} createSocket = {createSocket}/>
-        {socket && pageAuth === "dashboard" ? (<Dashboard AppearStatus = {pageAuth} setAppearStatus = {setPageAuth} socket = {socket}/>) : null}
+        {socket && pageAuth === "dashboard" ? (<Dashboard createSocket = {createSocket} AppearStatus = {pageAuth} setAppearStatus = {setPageAuth} socket = {socket}/>) : null}
       </div>
     </div>
   );

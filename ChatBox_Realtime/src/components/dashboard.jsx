@@ -5,7 +5,7 @@ import Menu from './menu'
 import Friend from './friend'
 import App from '../App'
 
-function Dashboard({AppearStatus, setAppearStatus, socket}){
+function Dashboard({AppearStatus, setAppearStatus, socket, createSocket}){
     const [profileStatus, setProfileStatus] = useState(false);
     const [currentChat, setCurrentChat] = useState(null);
     const [onMessage, setOnMessage] = useState("");
@@ -45,6 +45,15 @@ function Dashboard({AppearStatus, setAppearStatus, socket}){
         }, 5 * 60 * 1000); 
         return () => clearInterval(pingInterval);
     }, [socket]);
+    useEffect(() => {
+        if (!socket) return;
+        socket.onclose = () => {
+            console.log("Socket closed, reconnecting...");
+            setTimeout(() => {
+                createSocket(JSON.parse(localStorage.getItem("user"))?.id);
+            }, 2000);
+        };
+    }, [socket, createSocket]);
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 680);
         window.addEventListener('resize', handleResize);
